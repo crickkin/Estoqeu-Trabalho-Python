@@ -7,9 +7,6 @@ def search_product(id):
     # Caso não encontre o produto, retorna -1
     return -1
 
-def find_position(id):
-    return
-
 def add_product(id, qtd):
     listaProdutos.append([id, qtd])
     print(search_product(id))
