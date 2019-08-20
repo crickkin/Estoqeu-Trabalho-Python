@@ -1,4 +1,6 @@
 # coding: utf-8
+import SimpleXMLRPCServer
+from datetime import datetime
 
 def search_product(id):
     for i in listaProdutos:
@@ -23,7 +25,7 @@ def add_to_stock(id, qtd):
         add_product(id, qtd)
         return 1
     
-    produto[1] += 1
+    produto[1] += qtd
 
     return 1
 
@@ -45,6 +47,10 @@ listaProdutos = [
     ['102089', 20],
     ['901040', 83]
 ]
+
+server = SimpleXMLRPCServer.SimpleXMLRPCServer(("localhost", 8888))
+server.register_instance(datetime)
+server.serve_forever()
 
 # print(remove_from_stock('101211', 6))
 add_to_stock('2', 10)
